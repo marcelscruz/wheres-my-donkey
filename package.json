@@ -1,0 +1,15 @@
+{
+  "name": "wheres-my-donkey",
+  "version": "1.0.0",
+  "description": "I really want to find my donkey",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Marcel Cruz",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}

@@ -3,7 +3,9 @@ const axios = require('axios')
 const flickrKey = require('../config/keys').flickrKey
 
 module.exports = app => {
-  app.get('/api/v1/fetchPhotos', (req, res) => {
+  app.get('/api/v1/photos', (req, res) => {
+    res.setHeader('Content-Type', 'application/json')
+
     let tag = 'donkey'
     let pageNumber = 1
 

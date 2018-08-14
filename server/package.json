@@ -6,10 +6,7 @@
   "scripts": {
     "test": "mocha tests/**/*.test.js",
     "test-watch": "nodemon --exec \"yarn test\"",
-    "start": "node server.js",
-    "client": "cd ../client && \"yarn start\"",
-    "server": "nodemon server.js",
-    "dev": "concurrently --kill-others-on-fail \"yarn run server\" \"yarn run client\""
+    "start": "nodemon server.js"
   },
   "author": "Marcel Cruz",
   "license": "ISC",

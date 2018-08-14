@@ -7,7 +7,9 @@
     "test": "concurrently --kill-others-on-fail \"yarn run test:client\" \"yarn run test:server\"",
     "test:client": "cd client && yarn run test-watch",
     "test:server": "cd server && yarn run test-watch",
-    "dev": "cd server && \"yarn run dev\""
+    "client": "cd client && yarn start",
+    "server": "cd server && yarn start",
+    "dev": "concurrently --kill-others-on-fail \"yarn run server\" \"yarn run client\""
   },
   "author": "Marcel Cruz",
   "license": "ISC",

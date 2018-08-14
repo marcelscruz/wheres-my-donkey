@@ -1,3 +1,15 @@
+const request = require('supertest')
+
+const { app } = require('../server')
+
 describe('Server', () => {
-  it('should test server', () => {})
+  it('should successfully connect to Flickr API', done => {
+    request(app)
+      .get('/api/v1/photos')
+      .expect(200)
+      .expect(res => {
+        // console.log(res)
+      })
+      .end(done)
+  })
 })

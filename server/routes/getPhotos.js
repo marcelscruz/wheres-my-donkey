@@ -28,7 +28,7 @@ module.exports = app => {
         }
 
         const photos = apiResponse.data.photos
-        console.log(JSON.stringify(photos, undefined, 2))
+        // console.log(JSON.stringify(photos, undefined, 2))
         res.send(photos)
       })
       .catch(e => {

@@ -1,0 +1,25 @@
+{
+  "name": "wheres-my-donkey",
+  "version": "1.0.0",
+  "description": "Search no more, your donkey is right here",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha tests/**/*.test.js",
+    "test-watch": "nodemon --exec \"yarn test\"",
+    "start": "node server.js",
+    "client": "cd ../client && \"yarn start\"",
+    "server": "nodemon server.js",
+    "dev": "concurrently --kill-others-on-fail \"yarn run server\" \"yarn run client\""
+  },
+  "author": "Marcel Cruz",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "concurrently": "^3.6.1",
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.3"
+  }
+}

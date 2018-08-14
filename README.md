@@ -1,6 +1,6 @@
 # Where's My Donkey
 
-Look no more, your donkey is right here.
+Search no more, your donkey is right here.
 
 ## Project
 

@@ -49,7 +49,7 @@ class Search extends Component {
             <input
               autoFocus={true}
               onChange={this.onSearchChange}
-              placeholder="Not donkeys?"
+              placeholder="You don't want donkeys? ;("
               type="text"
               value={this.state.search}
             />

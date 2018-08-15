@@ -1,0 +1,14 @@
+.gallery {
+  // background: lightblue;
+  padding-top: 15vh;
+  width: 100vw;
+
+  .gallery__container {
+    // background: lightcoral;
+    display: flex;
+    // flex-direction: column;
+    flex-wrap: wrap;
+    padding: 0 0.4rem;
+    width: 100vw;
+  }
+}

@@ -18,7 +18,7 @@ module.exports = app => {
     const method = 'method=flickr.photos.search'
     const noJsonCallback = 'nojsoncallback=1'
     const page = `page=${nextPage}`
-    const perPage = 'per_page=10'
+    const perPage = 'per_page=20'
     const tags = `tags=${tag}`
 
     axios

@@ -1,0 +1,14 @@
+.photo {
+  // background: red;
+  display: inline;
+  flex: 25vw;
+  max-width: 25vw;
+  padding: 0 0.4rem;
+
+  img {
+    margin-top: 0.8rem;
+    // height: 30vh;
+    width: 23vw;
+    vertical-align: middle;
+  }
+}

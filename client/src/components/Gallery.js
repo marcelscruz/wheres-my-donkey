@@ -45,11 +45,7 @@ class Gallery extends Component {
             'title',
           ])
 
-          return (
-            <div key={photo.id}>
-              <Photo {...photoMetadata} />
-            </div>
-          )
+          return <Photo key={photo.id} {...photoMetadata} />
         })}
       </div>
     )
@@ -58,7 +54,7 @@ class Gallery extends Component {
   componentDidMount() {
     const { photos } = this.props
 
-    // Load photos only on first render, not when returning from About
+    // Fetch photos only on first render, not when returning from About
     _.isEmpty(photos) && this.fetchPhotos()
   }
 
@@ -66,8 +62,10 @@ class Gallery extends Component {
     const { photos } = this.props
 
     return (
-      <div>
-        <div>{_.isEmpty(photos) ? 'Fetching photos' : this.renderPhotos()}</div>
+      <div className="gallery">
+        <div className="gallery__container">
+          {_.isEmpty(photos) ? 'Fetching photos' : this.renderPhotos()}
+        </div>
         <button onClick={this.fetchPhotos}>Load more</button>
       </div>
     )

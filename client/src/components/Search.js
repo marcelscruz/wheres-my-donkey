@@ -14,25 +14,29 @@ class Search extends Component {
     search: '',
   }
 
+  // Put search input into state
   onSearchChange = e => {
     const search = e.target.value
+
     this.setState({
       search,
     })
   }
 
+  // Handle new search
   onSubmit = async e => {
     e.preventDefault()
 
     const tag = this.state.search
 
-    const response = await getPhotos(tag, 1)
+    const response = await getPhotos(tag, 1) // Return array of photos
     const photos = response.data.photo
 
-    this.props.setPhotos(photos)
-    this.props.setNextPage(2)
-    this.props.setTag(tag)
+    this.props.setPhotos(photos) // Clear store and add fetched photos
+    this.props.setNextPage(2) // Set next group of photos to be loaded
+    this.props.setTag(tag) // Set new tag to be fetched
 
+    // Clear search input
     this.setState({
       search: '',
     })
@@ -45,7 +49,7 @@ class Search extends Component {
           <input
             autoFocus={true}
             onChange={this.onSearchChange}
-            placeholder="We don't think it's necessary, but you can search for something else"
+            placeholder="Not donkeys? :("
             type="text"
             value={this.state.search}
           />

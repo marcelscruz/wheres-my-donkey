@@ -8,6 +8,8 @@ import store from './store/store'
 
 // ***** Styles ***** //
 import './styles/index.scss'
+
+// ***** Routes ***** //
 import AppRouter from './router/AppRouter'
 
 const app = (

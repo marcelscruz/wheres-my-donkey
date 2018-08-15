@@ -9,34 +9,45 @@ import { setNextPage } from '../actions/search'
 // ***** Libraries ***** //
 import _ from 'lodash'
 
-// ***** Components ***** //
-import Photo from './Photo'
-
 // ***** API ***** //
 import getPhotos from '../api/getPhotos'
 
+// ***** Components ***** //
+import Photo from './Photo'
+
 class Gallery extends Component {
-  loadPhotos = async () => {
+  // Fetch photos from Flickr API
+  fetchPhotos = async () => {
     const { page, tag } = this.props
 
-    const response = await getPhotos(tag, page)
+    const response = await getPhotos(tag, page) // Return array of photos
     const photos = response.data.photo
 
-    this.props.addPhotos(photos)
-    this.props.setNextPage(page + 1)
+    this.props.addPhotos(photos) // Add fetched photos in the store
+    this.props.setNextPage(page + 1) // Set next group of photos to be loaded
   }
 
+  // Render fetched photos
   renderPhotos = () => {
     const { photos } = this.props
 
+    // Pass only necessary properties to Photo and render it
     return (
       <div>
         {photos.map(photo => {
-          const photoData = _.pick(photo, ['id', 'farm', 'secret', 'server'])
+          const photoMetadata = _.pick(photo, [
+            'id',
+            'farm',
+            'owner',
+            'ownername',
+            'secret',
+            'server',
+            'title',
+          ])
 
           return (
             <div key={photo.id}>
-              <Photo {...photoData} />
+              <Photo {...photoMetadata} />
             </div>
           )
         })}
@@ -47,7 +58,8 @@ class Gallery extends Component {
   componentDidMount() {
     const { photos } = this.props
 
-    _.isEmpty(photos) && this.loadPhotos()
+    // Load photos only on first render, not when returning from About
+    _.isEmpty(photos) && this.fetchPhotos()
   }
 
   render() {
@@ -55,10 +67,8 @@ class Gallery extends Component {
 
     return (
       <div>
-        <div>
-          {!_.isEmpty(photos) ? this.renderPhotos() : 'fetching photos'}
-        </div>
-        <button onClick={this.loadPhotos}>Load more</button>
+        <div>{_.isEmpty(photos) ? 'Fetching photos' : this.renderPhotos()}</div>
+        <button onClick={this.fetchPhotos}>Load more</button>
       </div>
     )
   }

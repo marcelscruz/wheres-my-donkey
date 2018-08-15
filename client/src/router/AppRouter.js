@@ -6,8 +6,9 @@ import { Route, Router, Switch } from 'react-router-dom'
 import createHistory from 'history/createBrowserHistory'
 
 // ***** Components ***** //
-// // import About from '../components/About'
+import About from '../components/About'
 import App from '../components/App'
+import NotFound from '../components/NotFound'
 
 export const history = createHistory()
 
@@ -16,7 +17,8 @@ const AppRouter = () => (
   <Router history={history}>
     <Switch>
       <Route path="/" component={App} exact={true} />
-      {/* <Route path="/about" component={About} /> */}
+      <Route path="/about" component={About} />
+      <Route component={NotFound} />
     </Switch>
   </Router>
 )

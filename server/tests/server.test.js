@@ -7,9 +7,6 @@ describe('Server', () => {
     request(app)
       .get('/api/v1/photos')
       .expect(200)
-      .expect(res => {
-        // console.log(res)
-      })
       .end(done)
   })
 })

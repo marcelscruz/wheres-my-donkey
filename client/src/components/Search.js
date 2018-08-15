@@ -33,8 +33,6 @@ class Search extends Component {
     this.props.setNextPage(2)
     this.props.setTag(tag)
 
-    console.log(this.state.search)
-
     this.setState({
       search: '',
     })

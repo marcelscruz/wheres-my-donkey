@@ -8,10 +8,6 @@ module.exports = app => {
 
     let { tag, nextPage } = req.query
 
-    console.log(tag)
-    console.log(nextPage)
-    // console.log(req.headers)
-
     // Request parameters
     const method = 'method=flickr.photos.search'
     const apiKey = `api_key=${flickrKey}`

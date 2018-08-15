@@ -16,6 +16,16 @@ import Photo from './Photo'
 import getPhotos from '../api/getPhotos'
 
 class Gallery extends Component {
+  loadPhotos = async () => {
+    const { page, tag } = this.props
+
+    const response = await getPhotos(tag, page)
+    const photos = response.data.photo
+
+    this.props.addPhotos(photos)
+    this.props.setNextPage(page + 1)
+  }
+
   renderPhotos = () => {
     const { photos } = this.props
 
@@ -34,20 +44,10 @@ class Gallery extends Component {
     )
   }
 
-  loadPhotos = async () => {
-    const { page, tag } = this.props
-    console.log(page)
-    console.log(tag)
-
-    const response = await getPhotos(tag, page)
-    const photos = response.data.photo
-
-    this.props.addPhotos(photos)
-    this.props.setNextPage(page + 1)
-  }
-
   componentDidMount() {
-    this.loadPhotos()
+    const { photos } = this.props
+
+    _.isEmpty(photos) && this.loadPhotos()
   }
 
   render() {
@@ -56,7 +56,7 @@ class Gallery extends Component {
     return (
       <div>
         <div>
-          {photos.length !== 0 ? this.renderPhotos() : 'fetching photos'}
+          {!_.isEmpty(photos) ? this.renderPhotos() : 'fetching photos'}
         </div>
         <button onClick={this.loadPhotos}>Load more</button>
       </div>

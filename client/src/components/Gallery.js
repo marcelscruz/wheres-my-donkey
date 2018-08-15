@@ -1,24 +1,22 @@
 // ***** React ***** //
 import React, { Component } from 'react'
 
+// ***** Redux ***** //
+import { connect } from 'react-redux'
+import { setPhotos } from '../actions/photos'
+
 // ***** Libraries ***** //
-import axios from 'axios'
 import _ from 'lodash'
 
 // ***** Components ***** //
 import Photo from './Photo'
 
+// ***** API ***** //
+import getPhotos from '../api/getPhotos'
+
 class Gallery extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      photos: [],
-    }
-  }
-
   renderPhotos = () => {
-    const { photos } = this.state
+    const { photos } = this.props
 
     return (
       <div>
@@ -35,37 +33,31 @@ class Gallery extends Component {
     )
   }
 
-  componentDidMount() {
-    const photos = []
+  async componentDidMount() {
+    const response = await getPhotos()
+    const photos = response.data.photo
 
-    axios
-      .get('/api/v1/photos')
-      .then(res => {
-        console.log(res.data)
-
-        res.data.photo.forEach(photo => {
-          photos.push(photo)
-        })
-
-        this.setState({
-          photos,
-        })
-      })
-      .catch(e => {
-        console.log(e)
-      })
+    this.props.setPhotos(photos)
   }
 
   render() {
-    const { photos } = this.state
+    const { photos } = this.props
 
     return (
-      <div>
-        <h1>gallery</h1>
-        {photos.length !== 0 ? this.renderPhotos() : 'fetching photos'}
-      </div>
+      <div>{photos.length !== 0 ? this.renderPhotos() : 'fetching photos'}</div>
     )
   }
 }
 
-export default Gallery
+const mapStateToProps = state => ({
+  photos: state.photos,
+})
+
+const mapDispatchToProps = dispatch => ({
+  setPhotos: photos => dispatch(setPhotos(photos)),
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Gallery)

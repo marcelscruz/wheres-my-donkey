@@ -1,5 +1,7 @@
+// ***** Libraries ***** //
 const request = require('supertest')
 
+// ***** Server ***** //
 const { app } = require('../server')
 
 describe('Server', () => {

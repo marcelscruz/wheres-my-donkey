@@ -1,7 +1,10 @@
+// ***** Libraries ***** //
 const axios = require('axios')
 
+// ***** Keys ***** //
 const flickrKey = require('../config/keys').flickrKey
 
+// Endpoint to fetch photos from Flickr
 module.exports = app => {
   app.get('/api/v1/photos', (req, res) => {
     res.setHeader('Content-Type', 'application/json')
@@ -9,17 +12,18 @@ module.exports = app => {
     let { tag, nextPage } = req.query
 
     // Request parameters
-    const method = 'method=flickr.photos.search'
     const apiKey = `api_key=${flickrKey}`
-    const tags = `tags=${tag}`
-    const perPage = 'per_page=10'
+    const extras = 'extras=owner_name'
     const format = 'format=json'
+    const method = 'method=flickr.photos.search'
     const noJsonCallback = 'nojsoncallback=1'
     const page = `page=${nextPage}`
+    const perPage = 'per_page=10'
+    const tags = `tags=${tag}`
 
     axios
       .get(
-        `https://api.flickr.com/services/rest/?${method}&${apiKey}&${tags}&${perPage}&${format}&${noJsonCallback}&${page}`,
+        `https://api.flickr.com/services/rest/?${apiKey}&${extras}&${format}&${method}&${noJsonCallback}&${page}&${perPage}&${tags}`,
       )
       .then(apiResponse => {
         if (!apiResponse.data) {

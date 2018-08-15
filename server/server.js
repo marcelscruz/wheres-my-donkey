@@ -1,12 +1,17 @@
-const express = require('express')
+// ***** Node ***** //
 const path = require('path')
+
+// ***** Libraries ***** //
+const express = require('express')
 
 const app = express()
 
+// Serve client static files in production
 const publicPath = path.join(__dirname, '../client/build')
 app.use(express.static(publicPath))
 
-require('./routes/getPhotos')(app)
+// API endpoints
+require('./routes/photos')(app)
 
 const port = process.env.PORT || 5000
 

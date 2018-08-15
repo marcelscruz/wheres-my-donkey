@@ -1,15 +1,20 @@
 // ***** Libraries ***** //
 import axios from 'axios'
 
-const headers = {
-  Accept: 'application/json',
-  'Content-Type': 'application/json',
-}
+export default (tag = 'donkey', nextPage) => {
+  const headers = {
+    Accept: 'application/json',
+  }
 
-export default () => {
   return new Promise((resolve, reject) => {
     axios
-      .get('/api/v1/photos', headers)
+      .get('/api/v1/photos', {
+        headers,
+        params: {
+          tag,
+          nextPage,
+        },
+      })
       .then(res => {
         resolve(res)
       })

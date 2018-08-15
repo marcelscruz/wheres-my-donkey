@@ -3,7 +3,8 @@ import React, { Component } from 'react'
 
 // ***** Redux ***** //
 import { connect } from 'react-redux'
-import { setPhotos } from '../actions/photos'
+import { addPhotos } from '../actions/photos'
+import { setNextPage } from '../actions/search'
 
 // ***** Libraries ***** //
 import _ from 'lodash'
@@ -33,28 +34,45 @@ class Gallery extends Component {
     )
   }
 
-  async componentDidMount() {
-    const response = await getPhotos()
+  loadPhotos = async () => {
+    const { page, tag } = this.props
+    console.log(page)
+    console.log(tag)
+
+    const response = await getPhotos(tag, page)
     const photos = response.data.photo
 
-    this.props.setPhotos(photos)
+    this.props.addPhotos(photos)
+    this.props.setNextPage(page + 1)
+  }
+
+  componentDidMount() {
+    this.loadPhotos()
   }
 
   render() {
     const { photos } = this.props
 
     return (
-      <div>{photos.length !== 0 ? this.renderPhotos() : 'fetching photos'}</div>
+      <div>
+        <div>
+          {photos.length !== 0 ? this.renderPhotos() : 'fetching photos'}
+        </div>
+        <button onClick={this.loadPhotos}>Load more</button>
+      </div>
     )
   }
 }
 
 const mapStateToProps = state => ({
+  page: state.search.page,
   photos: state.photos,
+  tag: state.search.tag,
 })
 
 const mapDispatchToProps = dispatch => ({
-  setPhotos: photos => dispatch(setPhotos(photos)),
+  addPhotos: photos => dispatch(addPhotos(photos)),
+  setNextPage: page => dispatch(setNextPage(page)),
 })
 
 export default connect(

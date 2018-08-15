@@ -1,4 +1,13 @@
+// ***** React ***** //
 import React, { Component } from 'react'
+
+// ***** Redux ***** //
+import { connect } from 'react-redux'
+import { setPhotos } from '../actions/photos'
+import { setNextPage, setTag } from '../actions/search'
+
+// ***** API ***** //
+import getPhotos from '../api/getPhotos'
 
 class Search extends Component {
   state = {
@@ -12,16 +21,29 @@ class Search extends Component {
     })
   }
 
-  onSubmit = e => {
+  onSubmit = async e => {
     e.preventDefault()
 
+    const tag = this.state.search
+
+    const response = await getPhotos(tag, 1)
+    const photos = response.data.photo
+
+    this.props.setPhotos(photos)
+    this.props.setNextPage(2)
+    this.props.setTag(tag)
+
     console.log(this.state.search)
+
+    this.setState({
+      search: '',
+    })
   }
 
   render() {
     return (
       <div>
-        <form>
+        <form onSubmit={this.onSubmit}>
           <input
             autoFocus={true}
             onChange={this.onSearchChange}
@@ -37,4 +59,13 @@ class Search extends Component {
   }
 }
 
-export default Search
+const mapDispatchToProps = dispatch => ({
+  setPhotos: photos => dispatch(setPhotos(photos)),
+  setNextPage: page => dispatch(setNextPage(page)),
+  setTag: tag => dispatch(setTag(tag)),
+})
+
+export default connect(
+  undefined,
+  mapDispatchToProps,
+)(Search)

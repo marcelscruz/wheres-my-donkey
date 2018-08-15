@@ -6,8 +6,11 @@ module.exports = app => {
   app.get('/api/v1/photos', (req, res) => {
     res.setHeader('Content-Type', 'application/json')
 
-    let tag = 'donkey'
-    let pageNumber = 1
+    let { tag, nextPage } = req.query
+
+    console.log(tag)
+    console.log(nextPage)
+    // console.log(req.headers)
 
     // Request parameters
     const method = 'method=flickr.photos.search'
@@ -16,7 +19,7 @@ module.exports = app => {
     const perPage = 'per_page=10'
     const format = 'format=json'
     const noJsonCallback = 'nojsoncallback=1'
-    const page = `page=${pageNumber}`
+    const page = `page=${nextPage}`
 
     axios
       .get(
@@ -27,9 +30,9 @@ module.exports = app => {
           return res.status(404).send()
         }
 
-        const photos = apiResponse.data.photos
-        // console.log(JSON.stringify(photos, undefined, 2))
-        res.send(photos)
+        const photosMetadata = apiResponse.data.photos
+
+        res.send(photosMetadata)
       })
       .catch(e => {
         res.status(400).send()

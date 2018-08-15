@@ -24,7 +24,7 @@ class Gallery extends Component {
     const photos = response.data.photo
 
     this.props.addPhotos(photos) // Add fetched photos in the store
-    this.props.setNextPage(page + 1) // Set next group of photos to be loaded
+    this.props.setNextPage(page + 1) // Set next group of photos to be fetched
   }
 
   // Render fetched photos

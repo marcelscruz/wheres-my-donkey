@@ -1,0 +1,19 @@
+.header {
+  align-items: center;
+  // background: lightcoral;
+  display: flex;
+  height: 5vw;
+  justify-content: space-between;
+  padding: 0 10rem;
+
+  h1 {
+    color: $light;
+    font-family: 'Kirang Haerang', cursive;
+    font-size: 2.5vw;
+    letter-spacing: 0.15rem;
+    text-decoration: underline;
+    text-decoration-color: $light;
+    // transform: skewY(-4deg);
+    transform: perspective(10rem) rotateY(12deg);
+  }
+}

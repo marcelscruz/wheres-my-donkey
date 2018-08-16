@@ -1,14 +1,70 @@
 .photo {
-  // background: red;
-  display: inline;
-  flex: 25vw;
-  max-width: 25vw;
-  padding: 0 0.4rem;
+  display: inline-block;
+  color: $light;
+  font-family: 'Raleway', sans-serif;
+  max-width: 23vw;
+  padding: 0.4rem 0.4rem;
+  position: relative;
+  // width: 50%;
+}
 
-  img {
-    margin-top: 0.8rem;
-    // height: 30vh;
-    width: 23vw;
-    vertical-align: middle;
+.image {
+  backface-visibility: hidden;
+  // display: block;
+  height: auto;
+  opacity: 1;
+  transition: 0.5s ease;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.caption {
+  font-size: 1.2rem;
+  left: 50%;
+  opacity: 0;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transition: 0.5s ease;
+  width: 100%;
+}
+
+.owner {
+  bottom: 3%;
+  left: 45%;
+  opacity: 0;
+  position: absolute;
+  text-align: end;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transition: 0.5s ease;
+  width: 100%;
+}
+
+a {
+  font-size: 0.8rem;
+  margin: 0 auto;
+  width: 50%;
+  border-bottom: 0.05rem solid transparent;
+  color: $light;
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+
+  &:hover {
+    border-color: $light;
   }
+}
+
+.photo:hover .image {
+  opacity: 0.3;
+}
+
+.photo:hover .owner,
+.photo:hover .caption {
+  opacity: 1;
+}
+
+.photo--active {
 }

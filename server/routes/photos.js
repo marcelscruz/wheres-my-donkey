@@ -13,7 +13,7 @@ module.exports = app => {
 
     // Request parameters
     const apiKey = `api_key=${flickrKey}`
-    const extras = 'extras=owner_name'
+    const extras = 'extras=owner_name,description'
     const format = 'format=json'
     const method = 'method=flickr.photos.search'
     const noJsonCallback = 'nojsoncallback=1'

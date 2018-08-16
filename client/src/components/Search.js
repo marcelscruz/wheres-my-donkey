@@ -33,12 +33,14 @@ class Search extends Component {
 
     const tag = this.state.search
 
-    const response = await getPhotos(tag, 1) // Return array of photos
-    const photos = response.data.photo
+    if (tag !== '') {
+      const response = await getPhotos(tag, 1) // Return array of photos
+      const photos = response.data.photo
 
-    this.props.setPhotos(photos) // Clear store and add fetched photos
-    this.props.setNextPage(2) // Set next group of photos to be fetched
-    this.props.setTag(tag) // Set new tag to be fetched
+      this.props.setPhotos(photos) // Clear store and add fetched photos
+      this.props.setNextPage(2) // Set next group of photos to be fetched
+      this.props.setTag(tag) // Set new tag to be fetched
+    }
   }
 
   render() {

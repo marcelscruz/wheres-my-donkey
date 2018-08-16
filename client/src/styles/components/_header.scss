@@ -4,6 +4,8 @@
   .header__container {
     align-items: center;
     background: $background;
+    // background: lightcoral;
+    box-shadow: 0 0px 30px 30px $background;
     display: flex;
     height: 8vh;
     justify-content: space-between;

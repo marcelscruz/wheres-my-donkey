@@ -1,5 +1,5 @@
 .gallery {
-  // background: lightblue;
+  // min-height: 100vh;
   padding-top: 15vh;
   width: 100vw;
 
@@ -10,5 +10,30 @@
     flex-wrap: wrap;
     padding: 0 0.4rem;
     width: 100vw;
+  }
+
+  .load-more {
+    align-items: center;
+    display: flex;
+    height: 6rem;
+    justify-content: center;
+    margin: 1rem 0;
+  }
+
+  button {
+    background: none;
+    border: 0.1rem solid $light;
+    border-radius: 5px;
+    color: $light;
+    cursor: pointer;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+    padding: 0.8rem 1.6rem;
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+      background: $light;
+      color: $background;
+    }
   }
 }

@@ -14,8 +14,13 @@ import getPhotos from '../api/getPhotos'
 
 // ***** Components ***** //
 import Photo from './Photo'
+import Loading from './Loading'
 
 class Gallery extends Component {
+  state = {
+    loadingMore: false,
+  }
+
   // Fetch photos from Flickr API
   fetchPhotos = async () => {
     const { page, tag } = this.props
@@ -25,6 +30,25 @@ class Gallery extends Component {
 
     this.props.addPhotos(photos) // Add fetched photos in the store
     this.props.setNextPage(page + 1) // Set next group of photos to be fetched
+
+    this.setState({
+      loadingMore: false,
+    })
+  }
+
+  renderLoadMoreButton = () => {
+    return (
+      <button
+        onClick={() => {
+          this.setState({
+            loadingMore: true,
+          })
+          this.fetchPhotos()
+        }}
+      >
+        Load more
+      </button>
+    )
   }
 
   // Render fetched photos
@@ -60,13 +84,20 @@ class Gallery extends Component {
 
   render() {
     const { photos } = this.props
+    const { loadingMore } = this.state
 
     return (
       <div className="gallery">
         <div className="gallery__container">
-          {_.isEmpty(photos) ? 'Fetching photos' : this.renderPhotos()}
+          {_.isEmpty(photos) ? <Loading size="large" /> : this.renderPhotos()}
         </div>
-        <button onClick={this.fetchPhotos}>Load more</button>
+        <div className="load-more">
+          {loadingMore ? (
+            <Loading size="small" />
+          ) : (
+            !_.isEmpty(photos) && this.renderLoadMoreButton()
+          )}
+        </div>
       </div>
     )
   }

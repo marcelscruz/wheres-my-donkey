@@ -47,7 +47,6 @@ class Search extends Component {
         <form onSubmit={this.onSubmit}>
           <div className="search-box">
             <input
-              autoFocus={true}
               onChange={this.onSearchChange}
               placeholder="You don't want donkeys? ;("
               type="text"

@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 // ***** Components ***** //
 import Gallery from './Gallery'
 import Header from './Header'
+import Modal from './Modal'
 
 class App extends Component {
   render() {
@@ -11,6 +12,7 @@ class App extends Component {
       <div className="app">
         <Header />
         <Gallery />
+        <Modal />
       </div>
     )
   }

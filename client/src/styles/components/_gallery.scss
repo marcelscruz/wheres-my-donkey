@@ -23,17 +23,19 @@
   button {
     background: none;
     border: 0.1rem solid $light;
-    border-radius: 5px;
+    border-radius: 30px;
     color: $light;
     cursor: pointer;
     font-family: 'Raleway', sans-serif;
     font-size: 1rem;
+    outline: none;
     padding: 0.8rem 1.6rem;
     transition: 0.2s ease-in-out;
 
     &:hover {
       background: $light;
       color: $background;
+      transform: scale(1.1);
     }
   }
 }

@@ -1,11 +1,13 @@
 .photo {
   display: inline-block;
   color: $light;
+  cursor: pointer;
   font-family: 'Raleway', sans-serif;
   max-width: 23vw;
   padding: 0.4rem 0.4rem;
   position: relative;
   // width: 50%;
+  transition: 0.3s ease-in-out;
 }
 
 .image {
@@ -59,12 +61,10 @@ a {
 
 .photo:hover .image {
   opacity: 0.3;
+  transform: scale(1.03);
 }
 
 .photo:hover .owner,
 .photo:hover .caption {
   opacity: 1;
-}
-
-.photo--active {
 }

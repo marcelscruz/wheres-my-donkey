@@ -1,43 +1,23 @@
 // ***** React ***** //
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
-// const Photo = ({ id, farm, owner, ownername, secret, server, title }) => (
-//   <div className="photo">
-//     <img
-//       src={`https://farm${farm}.staticflickr.com/${server}/${id}_${secret}.jpg`}
-//       alt={title}
-//       className="image"
-//     />
-//     <div className="photo__data">
-//       <div className="owner">
-//         <a href={`https://www.flickr.com/people/${owner}/`} target="_blank">
-//           by {ownername}
-//         </a>
-//       </div>
-//     </div>
-//   </div>
-// )
+// ***** Redux ***** //
+import { connect } from 'react-redux'
+import { toggleModal } from '../actions/modal'
 
-class Photo extends Component {
-  state = {
-    active: false,
-  }
+// ***** Libraries ***** //
+import Fade from 'react-reveal/Fade'
 
-  onToggleClass = () => {
-    const currentState = this.state.active
-    console.log('toggle', currentState)
-    this.setState({ active: !currentState })
-  }
-
-  render() {
-    const { id, farm, owner, ownername, secret, server, title } = this.props
-    const { active } = this.state
-
-    return (
+const Photo = props => {
+  const { id, farm, owner, ownername, secret, server, title } = props
+  return (
+    <Fade bottom>
       <div
-        className={`photo ${active ? 'lightbox' : ''}`}
-        onClick={this.onToggleClass}
+        className="photo"
+        onClick={() => {
+          props.toggleModal(props)
+        }}
       >
         <img
           src={`https://farm${farm}.staticflickr.com/${server}/${id}_${secret}.jpg`}
@@ -54,8 +34,8 @@ class Photo extends Component {
           </a>
         </div>
       </div>
-    )
-  }
+    </Fade>
+  )
 }
 
 Photo.propTypes = {
@@ -65,4 +45,11 @@ Photo.propTypes = {
   server: PropTypes.string.isRequired,
 }
 
-export default Photo
+const mapDispatchToProps = dispatch => ({
+  toggleModal: id => dispatch(toggleModal(id)),
+})
+
+export default connect(
+  undefined,
+  mapDispatchToProps,
+)(Photo)

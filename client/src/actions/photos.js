@@ -1,4 +1,4 @@
-//ADD_PHOTOS
+// ADD_PHOTOS
 export const addPhotos = photos => ({
   type: 'ADD_PHOTOS',
   photos,

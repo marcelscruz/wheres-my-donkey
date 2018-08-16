@@ -59,7 +59,10 @@ class Gallery extends Component {
     return (
       <div>
         {photos.map(photo => {
+          // console.log(photo)
           const photoMetadata = _.pick(photo, [
+            'dateupload',
+            'description',
             'id',
             'farm',
             'owner',

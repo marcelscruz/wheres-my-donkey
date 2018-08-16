@@ -13,12 +13,12 @@ module.exports = app => {
 
     // Request parameters
     const apiKey = `api_key=${flickrKey}`
-    const extras = 'extras=owner_name,description'
+    const extras = 'extras=owner_name,description,date_upload,'
     const format = 'format=json'
     const method = 'method=flickr.photos.search'
     const noJsonCallback = 'nojsoncallback=1'
     const page = `page=${nextPage}`
-    const perPage = 'per_page=20'
+    const perPage = 'per_page=28'
     const tags = `tags=${tag}`
 
     axios

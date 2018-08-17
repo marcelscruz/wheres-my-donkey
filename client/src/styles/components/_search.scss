@@ -1,3 +1,8 @@
+.search {
+  float: right;
+  width: 20vw;
+}
+
 .search-box {
   position: relative;
 }
@@ -14,7 +19,7 @@
   padding-left: 2vw;
   position: relative;
   transition: 0.3s ease-in-out;
-  width: 20vw;
+  width: 100%;
 }
 
 .search-box__input:focus {

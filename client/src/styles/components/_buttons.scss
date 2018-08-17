@@ -23,6 +23,7 @@
   right: 0;
   top: 0;
   transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
   transform-origin: center;
   width: 32px;
 }
@@ -38,6 +39,7 @@
   right: 0;
   top: 0;
   transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
   transform-origin: center;
   width: 32px;
 }

@@ -1,4 +1,4 @@
-// ***** Legacy browsers support ***** //
+// ***** Legacy browser support ***** //
 import 'airbnb-browser-shims'
 
 // ***** React ***** //

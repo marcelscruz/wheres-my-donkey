@@ -7,18 +7,20 @@
   align-items: center;
   background: $dark;
   box-shadow: 0 0px 30px 30px $dark;
-  display: flex;
   height: 8vh;
   justify-content: space-between;
-  padding: 2.5rem 10rem;
+  padding: 1.5rem 10rem 2.5rem;
   width: 100vw;
 }
 
 .header__h1 {
+  bottom: 0.5rem;
   color: $light;
   font-family: 'Kirang Haerang', cursive;
+  float: left;
   font-size: 4.5vh;
   letter-spacing: 0.15rem;
+  position: relative;
   text-decoration: underline;
   transform: perspective(10rem) rotateY(12deg);
 }

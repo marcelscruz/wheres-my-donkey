@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 
 // ***** Components ***** //
+import Footer from './Footer'
 import Gallery from './Gallery'
 import Header from './Header'
 import Modal from './Modal'
@@ -13,6 +14,7 @@ class App extends Component {
         <Header />
         <Gallery />
         <Modal />
+        <Footer />
       </div>
     )
   }

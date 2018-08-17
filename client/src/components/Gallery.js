@@ -36,9 +36,24 @@ class Gallery extends Component {
     })
   }
 
+  // Render fetched photos
+  renderPhotos = () => {
+    const { photos } = this.props
+
+    return (
+      <div>
+        {photos.map(photo => {
+          return <Photo key={photo.id} {...photo} />
+        })}
+      </div>
+    )
+  }
+
+  // Render button to load more photos
   renderLoadMoreButton = () => {
     return (
       <button
+        className="load-more__button"
         onClick={() => {
           this.setState({
             loadingMore: true,
@@ -48,33 +63,6 @@ class Gallery extends Component {
       >
         Load more
       </button>
-    )
-  }
-
-  // Render fetched photos
-  renderPhotos = () => {
-    const { photos } = this.props
-
-    // Pass only necessary properties to Photo and render it
-    return (
-      <div>
-        {photos.map(photo => {
-          // console.log(photo)
-          const photoMetadata = _.pick(photo, [
-            'dateupload',
-            'description',
-            'id',
-            'farm',
-            'owner',
-            'ownername',
-            'secret',
-            'server',
-            'title',
-          ])
-
-          return <Photo key={photo.id} {...photoMetadata} />
-        })}
-      </div>
     )
   }
 
@@ -91,9 +79,7 @@ class Gallery extends Component {
 
     return (
       <div className="gallery">
-        <div className="gallery__container">
-          {_.isEmpty(photos) ? <Loading size="large" /> : this.renderPhotos()}
-        </div>
+        {_.isEmpty(photos) ? <Loading size="large" /> : this.renderPhotos()}
         <div className="load-more">
           {loadingMore ? (
             <Loading size="small" />

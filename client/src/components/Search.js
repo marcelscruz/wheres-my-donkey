@@ -50,7 +50,7 @@ class Search extends Component {
           <div className="search-box">
             <input
               onChange={this.onSearchChange}
-              placeholder="You don't want donkeys? ;("
+              placeholder="Want something else?"
               type="text"
               value={this.state.search}
             />

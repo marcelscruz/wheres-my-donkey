@@ -1,3 +1,6 @@
+// ***** Legacy browsers support ***** //
+import 'airbnb-browser-shims'
+
 // ***** React ***** //
 import React from 'react'
 import ReactDOM from 'react-dom'

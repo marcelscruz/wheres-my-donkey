@@ -1,27 +1,24 @@
 .header {
   position: fixed;
   z-index: 5;
+}
 
-  .header__container {
-    align-items: center;
-    background: $dark;
-    // background: lightcoral;
-    box-shadow: 0 0px 30px 30px $dark;
-    display: flex;
-    height: 8vh;
-    justify-content: space-between;
-    padding: 2.3rem 10rem;
-    width: 100vw;
+.header__container {
+  align-items: center;
+  background: $dark;
+  box-shadow: 0 0px 30px 30px $dark;
+  display: flex;
+  height: 8vh;
+  justify-content: space-between;
+  padding: 2.5rem 10rem;
+  width: 100vw;
+}
 
-    h1 {
-      color: $light;
-      font-family: 'Kirang Haerang', cursive;
-      font-size: 4.5vh;
-      letter-spacing: 0.15rem;
-      text-decoration: underline;
-      text-decoration-color: $light;
-      // transform: skewY(-4deg);
-      transform: perspective(10rem) rotateY(12deg);
-    }
-  }
+.header__h1 {
+  color: $light;
+  font-family: 'Kirang Haerang', cursive;
+  font-size: 4.5vh;
+  letter-spacing: 0.15rem;
+  text-decoration: underline;
+  transform: perspective(10rem) rotateY(12deg);
 }

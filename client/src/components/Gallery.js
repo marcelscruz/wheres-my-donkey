@@ -53,7 +53,7 @@ class Gallery extends Component {
   renderLoadMoreButton = () => {
     return (
       <button
-        className="load-more__button"
+        className="button__load-more"
         onClick={() => {
           this.setState({
             loadingMore: true,
@@ -80,7 +80,7 @@ class Gallery extends Component {
     return (
       <div className="gallery">
         {_.isEmpty(photos) ? <Loading size="large" /> : this.renderPhotos()}
-        <div className="load-more">
+        <div className="gallery__load-more">
           {loadingMore ? (
             <Loading size="small" />
           ) : (

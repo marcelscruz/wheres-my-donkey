@@ -1,12 +1,15 @@
+/* Configuration */
 @import './base/settings';
 @import './base/base';
-@import './components/header';
-@import './components/search';
+
+/* Components */
+@import './components/about';
+@import './components/buttons';
+@import './components/footer';
 @import './components/gallery';
-@import './components/photo';
+@import './components/header';
+@import './components/lightbox';
 @import './components/loading';
 @import './components/modal';
-@import './components/lightbox';
-@import './components/footer';
-@import './components/about';
-@import './components/x-button';
+@import './components/photo';
+@import './components/search';

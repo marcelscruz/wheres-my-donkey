@@ -1,16 +1,7 @@
 .footer {
-  align-items: center;
-  // background: lightblue;
-  bottom: 0;
-  color: #777;
+  color: $grey;
   float: right;
-  font-family: 'Raleway', sans-serif;
-  height: 4vh;
-  // justify-content: flex-end;
-  padding-right: 3vw;
-  position: relative;
-  right: 0;
-  text-align: right;
-  width: 30vw;
+  margin-bottom: 2vh;
+  margin-right: 3vw;
   font-size: 0.8rem;
 }

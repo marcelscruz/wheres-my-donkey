@@ -32,20 +32,22 @@ const Lightbox = ({ photoInfo, toggleModal }) => {
       />
 
       <div className="lightbox__info">
-        <p className="title">{title ? title : 'Title not available'}</p>
-        <p className="description">
+        <p className="lightbox__title">
+          {title ? title : 'Title not available'}
+        </p>
+        <p className="lightbox__description">
           {description._content
             ? description._content
             : 'Description not available'}
         </p>
-        <p className="upload">
+        <p className="lightbox__upload">
           Uploaded by {ownername} on{' '}
           {moment.unix(dateupload).format('DD/MM/YYYY')}
         </p>
       </div>
 
       <div
-        className="x"
+        className="button__close"
         onClick={() => {
           toggleModal(null)
         }}

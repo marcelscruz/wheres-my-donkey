@@ -49,15 +49,15 @@ class Search extends Component {
         <form onSubmit={this.onSubmit}>
           <div className="search-box">
             <input
+              className="search-box__input"
               onChange={this.onSearchChange}
               placeholder="Want something else?"
               type="text"
               value={this.state.search}
             />
-            <FontAwesomeIcon icon={faSearch} className="search-icon" />
+            <FontAwesomeIcon icon={faSearch} className="search-box__icon" />
           </div>
         </form>
-        {/* <button onClick={this.onSubmit}>Search</button> */}
       </div>
     )
   }

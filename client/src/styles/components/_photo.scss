@@ -2,24 +2,19 @@
   display: inline-block;
   color: $light;
   cursor: pointer;
-  max-width: 23vw;
+  max-width: 24vw;
   padding: 0.4rem 0.4rem;
   position: relative;
-  // width: 50%;
   transition: 0.3s ease-in-out;
 }
 
-.image {
-  // backface-visibility: hidden;
-  // display: block;
-  // height: auto;
-  // opacity: 1;
+.photo__image {
   transition: 0.5s ease;
   vertical-align: middle;
   width: 100%;
 }
 
-.caption {
+.photo__caption {
   font-size: 1.2rem;
   left: 50%;
   opacity: 0;
@@ -32,7 +27,7 @@
   width: 100%;
 }
 
-.owner {
+.photo__owner {
   bottom: 3%;
   color: #999;
   font-size: 0.8rem;
@@ -46,12 +41,12 @@
   width: 100%;
 }
 
-.photo:hover .image {
+.photo:hover .photo__image {
   opacity: 0.3;
   transform: scale(1.03);
 }
 
-.photo:hover .owner,
-.photo:hover .caption {
+.photo:hover .photo__owner,
+.photo:hover .photo__caption {
   opacity: 1;
 }

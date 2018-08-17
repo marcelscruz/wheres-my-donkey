@@ -18,10 +18,10 @@ const Photo = props => {
       <img
         src={`https://farm${farm}.staticflickr.com/${server}/${id}_${secret}.jpg`}
         alt={title}
-        className="image"
+        className="photo__image"
       />
-      <div className="caption">{title}</div>
-      <div className="owner">
+      <div className="photo__caption">{title}</div>
+      <div className="photo__owner">
         by{' '}
         <a
           href={`https://www.flickr.com/photos/${owner}/${id}`}

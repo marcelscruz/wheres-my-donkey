@@ -1,3 +1,6 @@
+// ***** Legacy browser support ***** //
+import 'core-js/es6/set'
+
 // ***** React ***** //
 import React from 'react'
 import ReactDOM from 'react-dom'

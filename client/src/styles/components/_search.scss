@@ -1,6 +1,16 @@
 .search {
   float: right;
   width: 20vw;
+
+  @media (max-width: $tablet-breakpoint) {
+    float: none;
+    margin: 0 auto;
+    width: 40vw;
+  }
+
+  @media (max-width: $smartphone-breakpoint) {
+    width: 50vw;
+  }
 }
 
 .search-box {
@@ -20,11 +30,28 @@
   position: relative;
   transition: 0.3s ease-in-out;
   width: 100%;
+
+  @media (max-width: $tablet-breakpoint) {
+    font-size: 2vw;
+    height: 6vw;
+    padding-left: 4vw;
+    top: 0.5vw;
+  }
+
+  @media (max-width: $smartphone-breakpoint) {
+    font-size: 4vw;
+    height: 8.5vw;
+    padding-left: 6vw;
+  }
 }
 
 .search-box__input:focus {
   border-color: $light;
   width: 25vw;
+
+  @media (max-width: $tablet-breakpoint) {
+    width: 50vw;
+  }
 }
 
 .search-box__input:focus ~ .search-box__icon {
@@ -38,4 +65,13 @@
   position: absolute;
   transition: 0.3s ease-in-out;
   top: 1.5vh; /* input height - icon font-size = 3vh */
+
+  @media (max-width: $tablet-breakpoint) {
+    font-size: 2vw;
+    top: 2.5vw;
+  }
+
+  @media (max-width: $smartphone-breakpoint) {
+    font-size: 4vw;
+  }
 }

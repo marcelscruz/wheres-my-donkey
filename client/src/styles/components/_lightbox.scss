@@ -2,6 +2,11 @@
   height: 100vh;
   opacity: 0.8;
   width: 100vw;
+
+  @media (max-width: $tablet-breakpoint) {
+    display: flex;
+    flex-direction: column-reverse;
+  }
 }
 
 .lightbox__photo {
@@ -9,6 +14,10 @@
   float: left;
   height: 100%;
   width: 60%;
+
+  @media (max-width: $tablet-breakpoint) {
+    width: 100vw;
+  }
 }
 
 .lightbox__info {
@@ -17,6 +26,16 @@
   padding: 22vh 5vw 0 2vw;
   text-align: left;
   width: 40%;
+
+  @media (max-width: $tablet-breakpoint) {
+    padding: 2rem 5rem 2rem;
+    width: 100vw;
+  }
+
+  @media (max-width: $smartphone-breakpoint) {
+    padding: 5rem 2rem 0;
+    width: 100vw;
+  }
 }
 .lightbox__info > p {
   margin: 1rem 0;

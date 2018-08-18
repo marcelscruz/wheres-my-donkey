@@ -6,12 +6,24 @@
   padding: 0.4rem 0.4rem;
   position: relative;
   transition: 0.3s ease-in-out;
+
+  @media (max-width: $tablet-breakpoint) {
+    max-width: 48vw;
+  }
+
+  @media (max-width: $smartphone-breakpoint) {
+    max-width: 95vw;
+  }
 }
 
 .photo__image {
   transition: 0.5s ease;
   vertical-align: middle;
   width: 100%;
+
+  @media (max-width: $tablet-breakpoint) {
+    opacity: 0.5;
+  }
 }
 
 .photo__caption {
@@ -26,6 +38,10 @@
   -ms-transform: translate(-50%, -50%);
   transition: 0.5s ease;
   width: 100%;
+
+  @media (max-width: $tablet-breakpoint) {
+    opacity: 0.7;
+  }
 }
 
 .photo__owner {
@@ -38,6 +54,10 @@
   text-align: end;
   transition: 0.5s ease;
   width: 100%;
+
+  @media (max-width: $tablet-breakpoint) {
+    opacity: 0.7;
+  }
 }
 
 .photo:hover .photo__image {

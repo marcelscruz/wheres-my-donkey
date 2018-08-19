@@ -6,9 +6,6 @@ import PropTypes from 'prop-types'
 import moment from 'moment'
 
 const Lightbox = ({ photoInfo, toggleModal }) => {
-  console.log(photoInfo)
-  console.log(toggleModal)
-
   const {
     id,
     dateupload,

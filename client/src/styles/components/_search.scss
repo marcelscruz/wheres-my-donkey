@@ -1,6 +1,6 @@
 .search {
   float: right;
-  width: 20vw;
+  width: 22vw;
 
   @media (max-width: $tablet-breakpoint) {
     float: none;
@@ -47,7 +47,6 @@
 
 .search-box__input:focus {
   border-color: $light;
-  width: 25vw;
 
   @media (max-width: $tablet-breakpoint) {
     width: 50vw;

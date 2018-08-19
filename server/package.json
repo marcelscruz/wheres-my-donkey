@@ -4,7 +4,7 @@
   "description": "Search no more, your donkey is right here",
   "main": "server.js",
   "scripts": {
-    "test": "mocha tests/**/*.test.js",
+    "test": "PORT=8000 mocha tests/**/*.test.js",
     "test-watch": "nodemon --exec \"yarn test\"",
     "start": "nodemon server.js"
   },

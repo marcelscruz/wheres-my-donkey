@@ -19,9 +19,11 @@ describe('Gallery', () => {
     key: 'value',
   }
   const initialProps = {
+    error: false,
     page: 1,
     photos: {},
     tag: 'donkeys',
+    errorFetchingPhotos: () => {},
   }
 
   const mockStore = configureStore()

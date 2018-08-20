@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 
 // ***** Redux ***** //
 import { connect } from 'react-redux'
+import { errorFetchingPhotos } from '../actions/error'
 import { setPhotos } from '../actions/photos'
 import { setNextPage, setTag } from '../actions/search'
 
@@ -32,6 +33,7 @@ export class Search extends Component {
     e.preventDefault()
 
     const tag = this.state.search
+    const { errorFetchingPhotos } = this.props
 
     if (tag !== '') {
       try {
@@ -42,8 +44,7 @@ export class Search extends Component {
         this.props.setNextPage(2) // Set next group of photos to be fetched
         this.props.setTag(tag) // Set new tag to be fetched
       } catch (error) {
-        // TODO ############################################
-        console.log(error)
+        errorFetchingPhotos()
       }
     }
   }
@@ -69,6 +70,7 @@ export class Search extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
+  errorFetchingPhotos: () => dispatch(errorFetchingPhotos(true)),
   setPhotos: photos => dispatch(setPhotos(photos)),
   setNextPage: page => dispatch(setNextPage(page)),
   setTag: tag => dispatch(setTag(tag)),

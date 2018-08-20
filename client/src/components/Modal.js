@@ -12,7 +12,7 @@ import _ from 'lodash'
 // ***** Components ***** //
 import Lightbox from './Lightbox'
 
-const Modal = ({ modal, toggleModal }) => (
+export const Modal = ({ modal, toggleModal }) => (
   <ReactModal
     ariaHideApp={false}
     className="modal"
@@ -34,7 +34,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  toggleModal: id => dispatch(toggleModal(null)),
+  toggleModal: () => dispatch(toggleModal(null)),
 })
 
 export default connect(

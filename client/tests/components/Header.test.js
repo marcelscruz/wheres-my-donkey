@@ -1,10 +1,14 @@
+// ***** React ***** //
 import React from 'react'
+
+// ***** Libraries ***** //
 import { expect } from 'chai'
 import { shallow } from 'enzyme'
 
+// ***** Components ***** //
 import Header from '../../src/components/Header'
 
-describe('Header', params => {
+describe('Header', () => {
   const wrapper = shallow(<Header />)
   const title = "Where's My Donkey?"
 
@@ -12,7 +16,7 @@ describe('Header', params => {
     expect(wrapper).to.have.length(1)
   })
 
-  it("should contain text 'Marcel Cruz'", () => {
+  it("should contain title 'Where's My Donkey?", () => {
     expect(wrapper.text()).to.contain(title)
   })
 })

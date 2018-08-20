@@ -16,7 +16,7 @@ import getPhotos from '../api/getPhotos'
 import Photo from './Photo'
 import Loading from './Loading'
 
-class Gallery extends Component {
+export class Gallery extends Component {
   state = {
     loadingMore: false,
   }
@@ -25,15 +25,20 @@ class Gallery extends Component {
   fetchPhotos = async () => {
     const { page, tag } = this.props
 
-    const response = await getPhotos(tag, page) // Return array of photos
-    const photos = response.data.photo
+    try {
+      const response = await getPhotos(tag, page) // Return array of photos
+      const photos = response.data.photo
 
-    this.props.addPhotos(photos) // Add fetched photos in the store
-    this.props.setNextPage(page + 1) // Set next group of photos to be fetched
+      this.props.addPhotos(photos) // Add fetched photos in the store
+      this.props.setNextPage(page + 1) // Set next group of photos to be fetched
 
-    this.setState({
-      loadingMore: false,
-    })
+      this.setState({
+        loadingMore: false,
+      })
+    } catch (error) {
+      // TODO ############################################
+      // console.log(error)
+    }
   }
 
   // Render fetched photos

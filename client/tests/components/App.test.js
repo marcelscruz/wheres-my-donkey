@@ -1,7 +1,11 @@
+// ***** React ***** //
 import React from 'react'
+
+// ***** Libraries ***** //
 import { shallow } from 'enzyme'
 import { expect } from 'chai'
 
+// ***** Components ***** //
 import App from '../../src/components/App'
 
 describe('App', () => {

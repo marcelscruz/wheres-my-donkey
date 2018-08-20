@@ -13,7 +13,7 @@ import getPhotos from '../api/getPhotos'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
-class Search extends Component {
+export class Search extends Component {
   state = {
     search: '',
   }
@@ -34,12 +34,17 @@ class Search extends Component {
     const tag = this.state.search
 
     if (tag !== '') {
-      const response = await getPhotos(tag, 1) // Return array of photos
-      const photos = response.data.photo
+      try {
+        const response = await getPhotos(tag, 1) // Return array of photos
+        const photos = response.data.photo
 
-      this.props.setPhotos(photos) // Clear store and add fetched photos
-      this.props.setNextPage(2) // Set next group of photos to be fetched
-      this.props.setTag(tag) // Set new tag to be fetched
+        this.props.setPhotos(photos) // Clear store and add fetched photos
+        this.props.setNextPage(2) // Set next group of photos to be fetched
+        this.props.setTag(tag) // Set new tag to be fetched
+      } catch (error) {
+        // TODO ############################################
+        console.log(error)
+      }
     }
   }
 

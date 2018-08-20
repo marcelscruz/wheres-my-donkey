@@ -6,13 +6,22 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { toggleModal } from '../actions/modal'
 
-const Photo = props => {
-  const { id, farm, owner, ownername, secret, server, title } = props
+export const Photo = props => {
+  const {
+    id,
+    farm,
+    owner,
+    ownername,
+    secret,
+    server,
+    title,
+    toggleModal,
+  } = props
   return (
     <div
       className="photo"
       onClick={() => {
-        props.toggleModal(props)
+        toggleModal(props)
       }}
     >
       <img
@@ -37,8 +46,12 @@ const Photo = props => {
 Photo.propTypes = {
   id: PropTypes.string.isRequired,
   farm: PropTypes.number.isRequired,
+  owner: PropTypes.string.isRequired,
+  ownername: PropTypes.string.isRequired,
   secret: PropTypes.string.isRequired,
   server: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  toggleModal: PropTypes.func.isRequired,
 }
 
 const mapDispatchToProps = dispatch => ({

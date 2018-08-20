@@ -6,16 +6,16 @@ import { expect } from 'chai'
 import { shallow } from 'enzyme'
 
 // ***** Components ***** //
-import Footer from '../../src/components/Footer'
+import Loading from '../../src/components/Loading'
 
-describe('Footer', () => {
-  const wrapper = shallow(<Footer />)
+describe('Loading', () => {
+  const wrapper = shallow(<Loading size="small" />)
 
   it('should render correctly', () => {
     expect(wrapper).to.have.length(1)
   })
 
-  it('should contain button to About page', () => {
-    expect(wrapper.find('Link')).to.have.length(1)
+  it('should render loader gif', () => {
+    expect(wrapper.find('img')).to.have.length(1)
   })
 })

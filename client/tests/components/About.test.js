@@ -1,10 +1,14 @@
+// ***** React ***** //
 import React from 'react'
+
+// ***** Libraries ***** //
 import { expect } from 'chai'
 import { shallow } from 'enzyme'
 
+// ***** Components ***** //
 import About from '../../src/components/About'
 
-describe('About', params => {
+describe('About', () => {
   const wrapper = shallow(<About />)
   const name = 'Marcel Cruz'
 

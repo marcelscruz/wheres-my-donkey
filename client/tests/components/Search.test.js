@@ -1,6 +1,3 @@
-// ***** DOM ***** //
-import 'jsdom-global/register'
-
 // ***** React ***** //
 import React from 'react'
 
@@ -12,16 +9,11 @@ import { expect } from 'chai'
 import { mount } from 'enzyme'
 
 // ***** Components ***** //
-import { Gallery } from '../../src/components/Gallery'
+import { Search } from '../../src/components/Search'
 
-describe('Gallery', () => {
+describe('Search', () => {
   const initialState = {
-    key: 'value',
-  }
-  const initialProps = {
-    page: 1,
-    photos: {},
-    tag: 'donkeys',
+    search: '',
   }
 
   const mockStore = configureStore()
@@ -30,7 +22,7 @@ describe('Gallery', () => {
 
   beforeEach(() => {
     store = mockStore(initialState)
-    wrapper = mount(<Gallery store={store} {...initialProps} />)
+    wrapper = mount(<Search store={store} />)
   })
 
   it('should render correctly', () => {

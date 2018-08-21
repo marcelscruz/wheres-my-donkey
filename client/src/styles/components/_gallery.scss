@@ -1,0 +1,36 @@
+.gallery {
+  padding-top: 15vh;
+
+  @media (max-width: $tablet-breakpoint) {
+    padding-top: 20vw;
+  }
+
+  @media (max-width: $smartphone-breakpoint) {
+    padding-top: 33vw;
+  }
+}
+.gallery__load-more {
+  align-items: center;
+  justify-content: center;
+  margin: 1.5rem 0 0.5rem;
+
+  @media (max-width: $tablet-breakpoint) {
+    margin: 2rem 0;
+  }
+}
+
+.gallery__error-message {
+  color: $light;
+  font-size: 1.5vw;
+  height: 75vh;
+  padding: 10rem;
+
+  @media (max-width: $tablet-breakpoint) {
+    height: 65vh;
+  }
+
+  @media (max-width: $smartphone-breakpoint) {
+    font-size: 3vw;
+    padding: 5rem 2rem;
+  }
+}

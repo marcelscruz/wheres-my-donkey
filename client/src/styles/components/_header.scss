@@ -1,0 +1,48 @@
+.header {
+  position: fixed;
+  z-index: 5;
+  width: 100%;
+}
+
+.header__container {
+  align-items: center;
+  background: $dark;
+  box-shadow: 0 0px 30px 30px $dark;
+  height: 8vh;
+  justify-content: space-between;
+  padding: 1.5rem 10rem 2.5rem;
+
+  @media (max-width: $tablet-breakpoint) {
+    height: 16vw;
+    padding: 1.5rem 0 2rem;
+  }
+
+  @media (max-width: $smartphone-breakpoint) {
+    height: 24vw;
+    padding-bottom: 2.2rem;
+  }
+}
+
+.header__h1 {
+  bottom: 0.5rem;
+  color: $light;
+  font-family: 'Kirang Haerang', cursive;
+  float: left;
+  font-size: 4.5vh;
+  letter-spacing: 0.15rem;
+  position: relative;
+  text-decoration: underline;
+  transform: perspective(10rem) rotateY(12deg);
+
+  @media (max-width: $tablet-breakpoint) {
+    float: none;
+    font-size: 4vw;
+    margin-left: 5vw;
+    width: 100vw;
+  }
+
+  @media (max-width: $smartphone-breakpoint) {
+    font-size: 7vw;
+    margin-left: 7vw;
+  }
+}

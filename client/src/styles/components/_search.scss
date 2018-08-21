@@ -1,0 +1,76 @@
+.search {
+  float: right;
+  width: 22vw;
+
+  @media (max-width: $tablet-breakpoint) {
+    float: none;
+    margin: 0 auto;
+    width: 40vw;
+  }
+
+  @media (max-width: $smartphone-breakpoint) {
+    width: 50vw;
+  }
+}
+
+.search-box {
+  position: relative;
+}
+
+.search-box__input {
+  background: none;
+  border: none;
+  border-bottom: 0.1rem solid $grey;
+  color: $light;
+  font-size: 1.3vw;
+  font-weight: 300;
+  height: 5vh;
+  outline: none;
+  padding-left: 2vw;
+  position: relative;
+  transition: 0.3s ease-in-out;
+  width: 100%;
+
+  @media (max-width: $tablet-breakpoint) {
+    font-size: 2vw;
+    height: 6vw;
+    padding-left: 4vw;
+    top: 0.5vw;
+  }
+
+  @media (max-width: $smartphone-breakpoint) {
+    font-size: 4vw;
+    height: 8.5vw;
+    padding-left: 6vw;
+  }
+}
+
+.search-box__input:focus {
+  border-color: $light;
+
+  @media (max-width: $tablet-breakpoint) {
+    width: 50vw;
+  }
+}
+
+.search-box__input:focus ~ .search-box__icon {
+  color: $light;
+}
+
+.search-box__icon {
+  color: $grey;
+  font-size: 2vh;
+  left: 0;
+  position: absolute;
+  transition: 0.3s ease-in-out;
+  top: 1.5vh; /* input height - icon font-size = 3vh */
+
+  @media (max-width: $tablet-breakpoint) {
+    font-size: 2vw;
+    top: 2.5vw;
+  }
+
+  @media (max-width: $smartphone-breakpoint) {
+    font-size: 4vw;
+  }
+}

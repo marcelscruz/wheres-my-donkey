@@ -26,6 +26,16 @@ Install dependencies
 yarn install
 ```
 
+Add Flickr API key
+
+In /server/config create file called `keys_dev.js` with following code
+
+```
+module.exports = {
+  flickrKey: [your_api_key],
+}
+```
+
 ### Running in development
 
 ```

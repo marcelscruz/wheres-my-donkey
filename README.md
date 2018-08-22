@@ -32,7 +32,7 @@ In /server/config create file called `keys_dev.js` with following code
 
 ```
 module.exports = {
-  flickrKey: [your_api_key],
+  flickrKey: [your_api_key]
 }
 ```
 

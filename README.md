@@ -1,10 +1,10 @@
 # Where's My Donkey?
 
-Search no more, your donkey is right here.
+Search no more.
 
 ## Project
 
-Who doesn't want to find the perfect donkey? Your despair comes to an end right now. This app lets you search for the beloved donkey, and anything else you want. Ah, also this app is intended to use some cool web technologies that are available out there.
+Who doesn't want to search for pictures of donkeys?
 
 ## Installation
 
